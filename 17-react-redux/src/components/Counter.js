@@ -1,13 +1,21 @@
 import CounterNumber from "./Counter.number";
 import { connect } from "react-redux";
+import { plusCounter } from "../redux/actions/counter.actions";
 
 function Counter(props) {
+  console.log("props", props);
   return (
     <div>
-      <button onClick={props.handleClickPlus}>+</button>
+      <button
+        onClick={() => {
+          props.plusCounter();
+        }}
+      >
+        +
+      </button>
       <h1>{props.counter}</h1>
 
-      <CounterNumber number={props.number} />
+      {/* <CounterNumber number={props.number} /> */}
       <button>-</button>
     </div>
   );
@@ -19,4 +27,10 @@ const mapStateToProps = (props) => {
   };
 };
 
-export default connect(mapStateToProps, null)(Counter);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    plusCounter: () => dispatch(plusCounter()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
