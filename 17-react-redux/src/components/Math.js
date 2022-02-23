@@ -1,11 +1,17 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addButton, multiButton } from "../redux/actions/math.actions";
+import {
+  addButton,
+  multiButton,
+  luasSegitigaButton,
+} from "../redux/actions/math.actions";
 
 function Math() {
   const dispatch = useDispatch();
   const tambah = useSelector((state) => state.tambah);
   const kali = useSelector((state) => state.kali);
+  const luas = useSelector((state) => state.luas);
+
   console.log(tambah);
   const [input, setInput] = useState({
     input1: 0,
@@ -42,10 +48,16 @@ function Math() {
       <button type="submit" onClick={() => dispatch(multiButton(input))}>
         kali angka
       </button>
+      <button type="submit" onClick={() => dispatch(luasSegitigaButton(input))}>
+        hitung luas segitiga
+      </button>
       <h1>Hasil Tambah {tambah}</h1>
       <h1>Hasil Kali {kali}</h1>
+      <h1>Hasil luas segitiga {luas}</h1>
     </div>
   );
 }
 
 export default Math;
+
+// hitung luas segitiga panjang kali tinggi bagi 2
