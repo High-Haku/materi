@@ -1,7 +1,8 @@
-import { ADDED } from "../actions/math.actions";
+import { ADDED, MULTIPLY } from "../actions/math.actions";
 
 const initialState = {
   tambah: 999999,
+  kali: 50,
 };
 console.log("initial state", initialState);
 
@@ -13,6 +14,11 @@ const math = (state = initialState, action) => {
         ...state,
         tambah:
           parseInt(action.payload.input1) + parseInt(action.payload.input2),
+      };
+    case MULTIPLY:
+      return {
+        ...state,
+        kali: parseInt(action.payload.input1) * parseInt(action.payload.input2),
       };
     default:
       return state;

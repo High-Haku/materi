@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addButton } from "../redux/actions/math.actions";
+import { addButton, multiButton } from "../redux/actions/math.actions";
 
 function Math() {
   const dispatch = useDispatch();
   const tambah = useSelector((state) => state.tambah);
+  const kali = useSelector((state) => state.kali);
   console.log(tambah);
   const [input, setInput] = useState({
     input1: 0,
@@ -38,7 +39,11 @@ function Math() {
       <button type="submit" onClick={() => dispatch(addButton(input))}>
         tambahkan angka
       </button>
+      <button type="submit" onClick={() => dispatch(multiButton(input))}>
+        kali angka
+      </button>
       <h1>Hasil Tambah {tambah}</h1>
+      <h1>Hasil Kali {kali}</h1>
     </div>
   );
 }
