@@ -7,7 +7,7 @@ const initialState = {
 };
 console.log("initial state", initialState);
 
-const math = (state = initialState, action) => {
+export const math = (state = initialState, action) => {
   switch (action.type) {
     case ADDED:
       console.log("added", action);
@@ -32,5 +32,3 @@ const math = (state = initialState, action) => {
       return state;
   }
 };
-
-export default math;
