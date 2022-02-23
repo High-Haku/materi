@@ -29,6 +29,7 @@ export const getUserRejected = (error) => {
 // Function untuk ambil data
 export const getUser = () => {
   return function (dispatch) {
+    console.log("tes");
     dispatch(getUserRequest());
 
     axios

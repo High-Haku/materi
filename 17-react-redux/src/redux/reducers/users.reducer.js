@@ -18,12 +18,14 @@ export const getUserReducers = (state = initialState, action) => {
         isLoading: true,
       };
     case GET_USER_SUCCESS:
+      console.log("tes sukses", action);
       return {
         ...state,
         isLoading: false,
-        data: action.result,
+        data: action.payload,
       };
     case GET_USER_REJECTED:
+      console.log("tes reject", action);
       return {
         ...state,
         isLoading: false,
