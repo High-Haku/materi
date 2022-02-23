@@ -1,0 +1,3 @@
+- buat redux berisi 2 inputan number
+  - button untuk tambah
+  - button untuk kali
