@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { getUser } from "../redux/actions/users.actions";
+import { getUserActions } from "../redux/actions/users.actions";
 import { useDispatch, useSelector } from "react-redux";
 
 function ListUser(props) {
@@ -7,11 +7,11 @@ function ListUser(props) {
   const dispatch = useDispatch();
 
   // menerima data
-  const user = useSelector((state) => state.getUserReducers.data);
+  const user = useSelector((state) => state.getUserReducers.dataaaa);
   console.log(user);
 
   useEffect(() => {
-    dispatch(getUser());
+    dispatch(getUserActions());
   }, [dispatch]);
 
   return (

@@ -27,7 +27,7 @@ export const getUserRejected = (error) => {
 };
 
 // Function untuk ambil data
-export const getUser = () => {
+export const getUserActions = () => {
   return function (dispatch) {
     console.log("tes");
     dispatch(getUserRequest());

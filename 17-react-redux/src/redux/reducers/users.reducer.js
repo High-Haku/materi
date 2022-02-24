@@ -22,7 +22,7 @@ export const getUserReducers = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        data: action.payload,
+        dataaaa: action.payload,
       };
     case GET_USER_REJECTED:
       console.log("tes reject", action);
