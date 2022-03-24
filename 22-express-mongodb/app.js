@@ -46,24 +46,34 @@ app.get("/user", async (req, res) => {
 });
 
 // ambil data user by ID
-// app.get("/user/:id", async (req, res) => {
-//   const users = await User.findOne(req.params.id);
-//   res.json({
-//     message: "berhasil ambil data user",
-//     data: users,
-//   });
-// });
+app.get("/user/:id", async (req, res) => {
+  const users = await UserModel.findById(req.params.id);
+  try {
+    res.json({
+      message: "berhasil ambil data user",
+      data: users,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).send(err);
+  }
+});
 
-// input data user
-// app.post("/user", async (req, res) => {
-//   const data = req.body;
+// post data user
+app.post("/user", async (req, res) => {
+  const data = req.body;
 
-//   await User.insertOne(data);
-//   res.json({
-//     message: "berhasil input data",
-//     data: 1,
-//   });
-// });
+  await UserModel.create(data);
+  try {
+    res.json({
+      message: "berhasil input data",
+      data: 1,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).send(err);
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`server running on port ${PORT}`);
